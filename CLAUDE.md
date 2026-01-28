@@ -106,3 +106,45 @@ type: feat | fix | refactor | test | docs | chore
 ## CI/CD
 
 - **GitHub Actions**: テスト自動実行、SwiftLint チェック
+
+---
+
+## 実装時チェックリスト
+
+**コード変更後は必ず以下を確認すること**
+
+### 1. SwiftLint
+
+```bash
+swiftlint lint
+```
+
+- エラー・警告が0件であること
+- 自動修正: `swiftlint lint --fix`
+
+### 2. ビルド確認
+
+```bash
+xcodebuild -scheme Promptalk -destination 'platform=iOS Simulator,name=iPhone 16' -quiet build
+```
+
+### 3. テスト実行
+
+```bash
+xcodebuild test -scheme Promptalk -destination 'platform=iOS Simulator,name=iPhone 16' -quiet
+```
+
+### 4. コミット前チェック
+
+- [ ] 不要なデバッグコード（print文など）を削除
+- [ ] TODO/FIXME コメントを確認
+- [ ] 機密情報がコードに含まれていないこと
+- [ ] 新規ファイル追加時は `project.pbxproj` が更新されていること
+
+---
+
+## 注意事項
+
+- UI変更時は Light/Dark モード両方で確認
+- iOS 17.0 以上をサポート
+- force unwrap (`!`) は原則禁止
