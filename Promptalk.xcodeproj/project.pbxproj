@@ -12,6 +12,30 @@
 		3A1234560000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000003 /* Assets.xcassets */; };
 		3A1234560000000000000004 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000004 /* Preview Assets.xcassets */; };
 		3A1234560000000000000010 /* PromptalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000010 /* PromptalkTests.swift */; };
+		3A1234560000000000000020 /* Persona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000020 /* Persona.swift */; };
+		3A1234560000000000000021 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000021 /* Conversation.swift */; };
+		3A1234560000000000000022 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000022 /* Message.swift */; };
+		3A1234560000000000000023 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000023 /* KeychainService.swift */; };
+		3A1234560000000000000024 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000024 /* OpenAIService.swift */; };
+		3A1234560000000000000025 /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000025 /* SpeechRecognitionService.swift */; };
+		3A1234560000000000000026 /* TextToSpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000026 /* TextToSpeechService.swift */; };
+		3A1234560000000000000027 /* PresetPersonas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000027 /* PresetPersonas.swift */; };
+		3A1234560000000000000030 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 3A1234700000000000000001 /* KeychainAccess */; };
+		3A1234560000000000000040 /* PersonaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000040 /* PersonaListView.swift */; };
+		3A1234560000000000000041 /* PersonaListViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000041 /* PersonaListViewStore.swift */; };
+		3A1234560000000000000042 /* PersonaEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000042 /* PersonaEditView.swift */; };
+		3A1234560000000000000043 /* PersonaEditViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000043 /* PersonaEditViewStore.swift */; };
+		3A1234560000000000000044 /* PersonaRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000044 /* PersonaRowView.swift */; };
+		3A1234560000000000000050 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000050 /* ConversationView.swift */; };
+		3A1234560000000000000051 /* ConversationViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000051 /* ConversationViewStore.swift */; };
+		3A1234560000000000000052 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000052 /* MessageBubbleView.swift */; };
+		3A1234560000000000000053 /* InputAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000053 /* InputAreaView.swift */; };
+		3A1234560000000000000060 /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000060 /* HistoryListView.swift */; };
+		3A1234560000000000000061 /* HistoryListViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000061 /* HistoryListViewStore.swift */; };
+		3A1234560000000000000062 /* HistoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000062 /* HistoryRowView.swift */; };
+		3A1234560000000000000070 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000070 /* SettingsView.swift */; };
+		3A1234560000000000000071 /* SettingsViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000071 /* SettingsViewStore.swift */; };
+		3A1234560000000000000072 /* APIKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000072 /* APIKeyInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +56,30 @@
 		3A1234550000000000000004 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A1234520000000000000002 /* PromptalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromptalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1234550000000000000010 /* PromptalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptalkTests.swift; sourceTree = "<group>"; };
+		3A1234550000000000000020 /* Persona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persona.swift; sourceTree = "<group>"; };
+		3A1234550000000000000021 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		3A1234550000000000000022 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		3A1234550000000000000023 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		3A1234550000000000000024 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		3A1234550000000000000025 /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
+		3A1234550000000000000026 /* TextToSpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechService.swift; sourceTree = "<group>"; };
+		3A1234550000000000000027 /* PresetPersonas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetPersonas.swift; sourceTree = "<group>"; };
+		3A1234550000000000000040 /* PersonaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaListView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000041 /* PersonaListViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaListViewStore.swift; sourceTree = "<group>"; };
+		3A1234550000000000000042 /* PersonaEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaEditView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000043 /* PersonaEditViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaEditViewStore.swift; sourceTree = "<group>"; };
+		3A1234550000000000000044 /* PersonaRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaRowView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000050 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000051 /* ConversationViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewStore.swift; sourceTree = "<group>"; };
+		3A1234550000000000000052 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000053 /* InputAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAreaView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000060 /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000061 /* HistoryListViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewStore.swift; sourceTree = "<group>"; };
+		3A1234550000000000000062 /* HistoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000070 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000071 /* SettingsViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewStore.swift; sourceTree = "<group>"; };
+		3A1234550000000000000072 /* APIKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyInputView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1234560000000000000030 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +122,11 @@
 		3A1234540000000000000001 /* Promptalk */ = {
 			isa = PBXGroup;
 			children = (
+				3A1234550000000000000080 /* Info.plist */,
 				3A1234540000000000000005 /* App */,
 				3A1234540000000000000006 /* Features */,
 				3A1234540000000000000007 /* Core */,
+				3A1234540000000000000010 /* Data */,
 				3A1234540000000000000008 /* Resources */,
 			);
 			path = Promptalk;
@@ -101,6 +152,10 @@
 		3A1234540000000000000006 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3A1234540000000000000013 /* Conversation */,
+				3A1234540000000000000014 /* Persona */,
+				3A1234540000000000000015 /* History */,
+				3A1234540000000000000016 /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -129,6 +184,112 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3A1234540000000000000010 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234540000000000000011 /* Models */,
+				3A1234540000000000000012 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000011 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000020 /* Persona.swift */,
+				3A1234550000000000000021 /* Conversation.swift */,
+				3A1234550000000000000022 /* Message.swift */,
+				3A1234550000000000000027 /* PresetPersonas.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000012 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000023 /* KeychainService.swift */,
+				3A1234550000000000000024 /* OpenAIService.swift */,
+				3A1234550000000000000025 /* SpeechRecognitionService.swift */,
+				3A1234550000000000000026 /* TextToSpeechService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000013 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000050 /* ConversationView.swift */,
+				3A1234550000000000000051 /* ConversationViewStore.swift */,
+				3A1234540000000000000017 /* Components */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000014 /* Persona */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000040 /* PersonaListView.swift */,
+				3A1234550000000000000041 /* PersonaListViewStore.swift */,
+				3A1234550000000000000042 /* PersonaEditView.swift */,
+				3A1234550000000000000043 /* PersonaEditViewStore.swift */,
+				3A1234540000000000000018 /* Components */,
+			);
+			path = Persona;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000015 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000060 /* HistoryListView.swift */,
+				3A1234550000000000000061 /* HistoryListViewStore.swift */,
+				3A1234540000000000000019 /* Components */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000016 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000070 /* SettingsView.swift */,
+				3A1234550000000000000071 /* SettingsViewStore.swift */,
+				3A123454000000000000001A /* Components */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000017 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000052 /* MessageBubbleView.swift */,
+				3A1234550000000000000053 /* InputAreaView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000018 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000044 /* PersonaRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3A1234540000000000000019 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000062 /* HistoryRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3A123454000000000000001A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A1234550000000000000072 /* APIKeyInputView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +306,9 @@
 			dependencies = (
 			);
 			name = Promptalk;
+			packageProductDependencies = (
+				3A1234700000000000000001 /* KeychainAccess */,
+			);
 			productName = Promptalk;
 			productReference = 3A1234520000000000000001 /* Promptalk.app */;
 			productType = "com.apple.product-type.application";
@@ -196,6 +360,9 @@
 				ja,
 			);
 			mainGroup = 3A1234490000000000000001;
+			packageReferences = (
+				3A1234650000000000000001 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 3A1234530000000000000001 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +399,29 @@
 			files = (
 				3A1234560000000000000002 /* ContentView.swift in Sources */,
 				3A1234560000000000000001 /* PromptalkApp.swift in Sources */,
+				3A1234560000000000000020 /* Persona.swift in Sources */,
+				3A1234560000000000000021 /* Conversation.swift in Sources */,
+				3A1234560000000000000022 /* Message.swift in Sources */,
+				3A1234560000000000000027 /* PresetPersonas.swift in Sources */,
+				3A1234560000000000000023 /* KeychainService.swift in Sources */,
+				3A1234560000000000000024 /* OpenAIService.swift in Sources */,
+				3A1234560000000000000025 /* SpeechRecognitionService.swift in Sources */,
+				3A1234560000000000000026 /* TextToSpeechService.swift in Sources */,
+				3A1234560000000000000040 /* PersonaListView.swift in Sources */,
+				3A1234560000000000000041 /* PersonaListViewStore.swift in Sources */,
+				3A1234560000000000000042 /* PersonaEditView.swift in Sources */,
+				3A1234560000000000000043 /* PersonaEditViewStore.swift in Sources */,
+				3A1234560000000000000044 /* PersonaRowView.swift in Sources */,
+				3A1234560000000000000050 /* ConversationView.swift in Sources */,
+				3A1234560000000000000051 /* ConversationViewStore.swift in Sources */,
+				3A1234560000000000000052 /* MessageBubbleView.swift in Sources */,
+				3A1234560000000000000053 /* InputAreaView.swift in Sources */,
+				3A1234560000000000000060 /* HistoryListView.swift in Sources */,
+				3A1234560000000000000061 /* HistoryListViewStore.swift in Sources */,
+				3A1234560000000000000062 /* HistoryRowView.swift in Sources */,
+				3A1234560000000000000070 /* SettingsView.swift in Sources */,
+				3A1234560000000000000071 /* SettingsViewStore.swift in Sources */,
+				3A1234560000000000000072 /* APIKeyInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +573,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Promptalk/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Promptalk/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声入力のためにマイクを使用します";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "音声を文字に変換するために音声認識を使用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -411,6 +604,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Promptalk/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Promptalk/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声入力のためにマイクを使用します";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "音声を文字に変換するために音声認識を使用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,6 +694,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A1234650000000000000001 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A1234700000000000000001 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A1234650000000000000001 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A1234500000000000000001 /* Project object */;
 }
