@@ -1,0 +1,60 @@
+name: iOS Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & Test
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Cache Swift Package Manager
+        uses: actions/cache@v4
+        with:
+          path: |
+            .build
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      - name: Build
+        run: |
+          xcodebuild build-for-testing \
+            -scheme Promptalk \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+            -derivedDataPath DerivedData \
+            | xcpretty
+
+      - name: Test
+        run: |
+          xcodebuild test-without-building \
+            -scheme Promptalk \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+            -derivedDataPath DerivedData \
+            -resultBundlePath TestResults.xcresult \
+            | xcpretty
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results
+          path: TestResults.xcresult
