@@ -6,6 +6,7 @@ struct ConversationView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewStore = ConversationViewStore()
     @State private var showAPIKeyAlert = false
+    @State private var showShareSheet = false
 
     let persona: Persona?
     let existingConversation: Conversation?
@@ -93,12 +94,24 @@ struct ConversationView: View {
         .navigationTitle(viewStore.currentPersona?.name ?? "会話")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                if !viewStore.messages.isEmpty {
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+            }
             ToolbarItem(placement: .primaryAction) {
                 Button("終了") {
                     viewStore.endConversation()
                     dismiss()
                 }
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [viewStore.exportConversation()])
         }
         .alert("APIキーが必要です", isPresented: $showAPIKeyAlert) {
             Button("設定へ") {
