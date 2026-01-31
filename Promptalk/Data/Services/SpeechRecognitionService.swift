@@ -1,5 +1,6 @@
 import AVFoundation
 import Speech
+import SwiftUI
 
 enum SpeechRecognitionError: LocalizedError {
     case notAuthorized
@@ -23,11 +24,13 @@ final class SpeechRecognitionService: ObservableObject {
     @Published var recognizedText: String = ""
     @Published var isRecording: Bool = false
     @Published var error: SpeechRecognitionError?
+    @Published var audioLevels: [CGFloat] = Array(repeating: 0, count: 30)
 
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private var levelUpdateTimer: Timer?
 
     func requestAuthorization() async -> Bool {
         await withCheckedContinuation { continuation in
@@ -67,6 +70,7 @@ final class SpeechRecognitionService: ObservableObject {
 
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { [weak self] buffer, _ in
             self?.recognitionRequest?.append(buffer)
+            self?.processAudioBuffer(buffer)
         }
 
         audioEngine.prepare()
@@ -99,7 +103,39 @@ final class SpeechRecognitionService: ObservableObject {
         recognitionTask?.cancel()
         recognitionTask = nil
         isRecording = false
+        levelUpdateTimer?.invalidate()
+        levelUpdateTimer = nil
+
+        Task { @MainActor in
+            withAnimation(.easeOut(duration: 0.3)) {
+                audioLevels = Array(repeating: 0, count: 30)
+            }
+        }
 
         try? AVAudioSession.sharedInstance().setActive(false)
+    }
+
+    nonisolated private func processAudioBuffer(_ buffer: AVAudioPCMBuffer) {
+        guard let channelData = buffer.floatChannelData?[0] else { return }
+        let frameLength = Int(buffer.frameLength)
+
+        var sum: Float = 0
+        for i in 0..<frameLength {
+            sum += abs(channelData[i])
+        }
+        let average = sum / Float(frameLength)
+
+        // Convert to decibels and normalize to 0-1 range
+        let decibels = 20 * log10(max(average, 0.0001))
+        let normalizedLevel = CGFloat(max(0, min(1, (decibels + 50) / 50)))
+
+        Task { @MainActor in
+            withAnimation(.easeOut(duration: 0.05)) {
+                var newLevels = self.audioLevels
+                newLevels.removeFirst()
+                newLevels.append(normalizedLevel)
+                self.audioLevels = newLevels
+            }
+        }
     }
 }

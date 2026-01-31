@@ -75,6 +75,7 @@ struct ConversationView: View {
                 text: $viewStore.inputText,
                 isRecording: viewStore.isRecording,
                 isLoading: viewStore.isLoading,
+                audioLevels: viewStore.speechService.audioLevels,
                 onRecordStart: {
                     Task {
                         await viewStore.startRecording()
