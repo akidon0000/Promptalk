@@ -91,7 +91,11 @@ final class ConversationViewStore {
             currentConversation.updatedAt = Date()
             try? modelContext.save()
 
-            ttsService.speak(response)
+            let speechRate = UserDefaults.standard.float(forKey: "speechRate")
+            let autoSpeak = UserDefaults.standard.bool(forKey: "autoSpeak")
+            if autoSpeak {
+                ttsService.speak(response, rate: speechRate > 0 ? speechRate : 0.5)
+            }
         } catch {
             self.error = error
             self.showRetry = true
