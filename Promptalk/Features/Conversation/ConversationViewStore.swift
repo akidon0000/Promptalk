@@ -141,4 +141,29 @@ final class ConversationViewStore {
             try? modelContext.save()
         }
     }
+
+    func exportConversation() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+
+        var text = "【Promptalk 会話履歴】\n"
+        text += "ペルソナ: \(currentPersona?.name ?? "不明")\n"
+        if let date = currentConversation?.createdAt {
+            text += "日時: \(dateFormatter.string(from: date))\n"
+        }
+        text += "\n---\n\n"
+
+        for message in messages {
+            let role = message.role == .user ? "あなた" : currentPersona?.name ?? "相手"
+            text += "【\(role)】\n\(message.content)\n"
+            if let translation = message.translatedContent {
+                text += "（翻訳）\(translation)\n"
+            }
+            text += "\n"
+        }
+
+        return text
+    }
 }
