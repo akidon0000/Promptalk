@@ -44,6 +44,7 @@ struct ConversationView: View {
                                 Spacer()
                             }
                             .padding(.horizontal)
+                            .id("loading-indicator")
                         }
 
                         if viewStore.showRetry {
@@ -61,10 +62,20 @@ struct ConversationView: View {
                     .padding(.vertical)
                 }
                 .onChange(of: viewStore.messages.count) {
-                    if let lastMessage = viewStore.messages.last {
-                        withAnimation {
-                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                    scrollToBottom(proxy: proxy)
+                }
+                .onChange(of: viewStore.isLoading) { _, isLoading in
+                    if isLoading {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                proxy.scrollTo("loading-indicator", anchor: .bottom)
+                            }
                         }
+                    }
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        scrollToBottom(proxy: proxy)
                     }
                 }
             }
@@ -128,6 +139,15 @@ struct ConversationView: View {
         .onChange(of: viewStore.speechService.recognizedText) { _, newValue in
             if viewStore.isRecording {
                 viewStore.inputText = newValue
+            }
+        }
+    }
+
+    private func scrollToBottom(proxy: ScrollViewProxy) {
+        guard let lastMessage = viewStore.messages.last else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation(.easeOut(duration: 0.3)) {
+                proxy.scrollTo(lastMessage.id, anchor: .bottom)
             }
         }
     }
