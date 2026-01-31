@@ -25,6 +25,18 @@ final class ConversationViewStore {
         KeychainService.shared.hasAPIKey
     }
 
+    var errorMessage: String {
+        guard let error else { return "" }
+        if let localizedError = error as? LocalizedError {
+            return localizedError.errorDescription ?? "予期しないエラーが発生しました"
+        }
+        return error.localizedDescription
+    }
+
+    func clearError() {
+        error = nil
+    }
+
     func configure(modelContext: ModelContext, persona: Persona) {
         self.modelContext = modelContext
         self.currentPersona = persona

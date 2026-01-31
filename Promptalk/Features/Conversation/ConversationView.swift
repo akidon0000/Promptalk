@@ -6,6 +6,7 @@ struct ConversationView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewStore = ConversationViewStore()
     @State private var showAPIKeyAlert = false
+    @State private var showErrorAlert = false
 
     let persona: Persona?
     let existingConversation: Conversation?
@@ -109,6 +110,16 @@ struct ConversationView: View {
             }
         } message: {
             Text("会話を開始するにはOpenAI APIキーを設定してください。")
+        }
+        .alert("エラーが発生しました", isPresented: $showErrorAlert) {
+            Button("OK", role: .cancel) {
+                viewStore.clearError()
+            }
+        } message: {
+            Text(viewStore.errorMessage)
+        }
+        .onChange(of: viewStore.error != nil) { _, hasError in
+            showErrorAlert = hasError
         }
         .onAppear {
             if !viewStore.hasAPIKey {
