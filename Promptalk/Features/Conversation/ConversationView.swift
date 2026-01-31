@@ -25,6 +25,16 @@ struct ConversationView: View {
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(spacing: 16) {
+                        if viewStore.messages.isEmpty && !viewStore.isLoading {
+                            ConversationStarterView { phrase in
+                                viewStore.inputText = phrase
+                                Task {
+                                    await viewStore.send()
+                                }
+                            }
+                            .padding(.top, 40)
+                        }
+
                         ForEach(viewStore.messages, id: \.id) { message in
                             MessageBubbleView(
                                 message: message,
