@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct InputAreaView: View {
     @Binding var text: String
@@ -56,6 +57,9 @@ struct RecordButton: View {
     var onStart: (() -> Void)?
     var onEnd: (() -> Void)?
 
+    private let impactGenerator = UIImpactFeedbackGenerator(style: .medium)
+    private let lightImpactGenerator = UIImpactFeedbackGenerator(style: .light)
+
     var body: some View {
         Button {
         } label: {
@@ -73,10 +77,12 @@ struct RecordButton: View {
             DragGesture(minimumDistance: 0)
                 .onChanged { _ in
                     if !isRecording {
+                        impactGenerator.impactOccurred()
                         onStart?()
                     }
                 }
                 .onEnded { _ in
+                    lightImpactGenerator.impactOccurred()
                     onEnd?()
                 }
         )
@@ -88,8 +94,11 @@ struct SendButton: View {
     let isLoading: Bool
     var onTap: (() -> Void)?
 
+    private let impactGenerator = UIImpactFeedbackGenerator(style: .light)
+
     var body: some View {
         Button {
+            impactGenerator.impactOccurred()
             onTap?()
         } label: {
             ZStack {
