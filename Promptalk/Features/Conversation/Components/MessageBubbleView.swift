@@ -24,6 +24,7 @@ struct MessageBubbleView: View {
                     .background(isUser ? Color.accentColor : Color(.systemGray5))
                     .foregroundStyle(isUser ? .white : .primary)
                     .clipShape(RoundedRectangle(cornerRadius: 18))
+                    .accessibilityLabel(isUser ? "あなた: \(message.content)" : "相手: \(message.content)")
 
                 if showTranslation, let translation = message.translatedContent {
                     Text(translation)
@@ -54,6 +55,8 @@ struct MessageBubbleView: View {
                 }
                 .disabled(isTranslating)
                 .foregroundStyle(.secondary)
+                .accessibilityLabel(showTranslation ? "翻訳を隠す" : "翻訳")
+                .accessibilityHint(showTranslation ? "翻訳を非表示にします" : "このメッセージを日本語に翻訳します")
             }
 
             if !isUser {

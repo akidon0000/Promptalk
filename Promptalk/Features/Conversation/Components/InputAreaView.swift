@@ -27,6 +27,8 @@ struct InputAreaView: View {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundStyle(.secondary)
                         }
+                        .accessibilityLabel("入力をクリア")
+                        .accessibilityHint("入力したテキストを削除します")
                     }
                 }
                 .padding(.horizontal)
@@ -80,6 +82,9 @@ struct RecordButton: View {
                     onEnd?()
                 }
         )
+        .accessibilityLabel(isRecording ? "録音中" : "録音ボタン")
+        .accessibilityHint(isRecording ? "指を離すと録音を停止します" : "長押しして音声を録音します")
+        .accessibilityAddTraits(.startsMediaSession)
     }
 }
 
@@ -108,6 +113,8 @@ struct SendButton: View {
             }
         }
         .disabled(!isEnabled || isLoading)
+        .accessibilityLabel(isLoading ? "送信中" : "送信")
+        .accessibilityHint(isEnabled ? "メッセージを送信します" : "メッセージを入力してください")
     }
 }
 
