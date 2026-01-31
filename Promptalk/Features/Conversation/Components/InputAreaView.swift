@@ -4,12 +4,38 @@ struct InputAreaView: View {
     @Binding var text: String
     let isRecording: Bool
     let isLoading: Bool
+    let audioLevels: [CGFloat]
     var onRecordStart: (() -> Void)?
     var onRecordEnd: (() -> Void)?
     var onSend: (() -> Void)?
 
+    init(
+        text: Binding<String>,
+        isRecording: Bool,
+        isLoading: Bool,
+        audioLevels: [CGFloat] = [],
+        onRecordStart: (() -> Void)? = nil,
+        onRecordEnd: (() -> Void)? = nil,
+        onSend: (() -> Void)? = nil
+    ) {
+        self._text = text
+        self.isRecording = isRecording
+        self.isLoading = isLoading
+        self.audioLevels = audioLevels
+        self.onRecordStart = onRecordStart
+        self.onRecordEnd = onRecordEnd
+        self.onSend = onSend
+    }
+
     var body: some View {
         VStack(spacing: 12) {
+            if isRecording {
+                AudioWaveformView(levels: audioLevels)
+                    .frame(height: 40)
+                    .padding(.horizontal, 24)
+                    .transition(.opacity.combined(with: .scale(scale: 0.8)))
+            }
+
             if !text.isEmpty || isRecording {
                 HStack {
                     TextField("メッセージ", text: $text, axis: .vertical)
@@ -48,6 +74,7 @@ struct InputAreaView: View {
         }
         .padding(.vertical, 12)
         .background(Color(.systemBackground))
+        .animation(.easeInOut(duration: 0.2), value: isRecording)
     }
 }
 
@@ -111,13 +138,25 @@ struct SendButton: View {
     }
 }
 
-#Preview {
+#Preview("With Text") {
     VStack {
         Spacer()
         InputAreaView(
             text: .constant("Hello!"),
             isRecording: false,
             isLoading: false
+        )
+    }
+}
+
+#Preview("Recording with Waveform") {
+    VStack {
+        Spacer()
+        InputAreaView(
+            text: .constant(""),
+            isRecording: true,
+            isLoading: false,
+            audioLevels: (0..<30).map { _ in CGFloat.random(in: 0.1...0.7) }
         )
     }
 }
