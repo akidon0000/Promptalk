@@ -30,6 +30,7 @@
 		3A1234560000000000000051 /* ConversationViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000051 /* ConversationViewStore.swift */; };
 		3A1234560000000000000052 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000052 /* MessageBubbleView.swift */; };
 		3A1234560000000000000053 /* InputAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000053 /* InputAreaView.swift */; };
+		3A1234560000000000000054 /* ConversationStarterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000054 /* ConversationStarterView.swift */; };
 		3A1234560000000000000060 /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000060 /* HistoryListView.swift */; };
 		3A1234560000000000000061 /* HistoryListViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000061 /* HistoryListViewStore.swift */; };
 		3A1234560000000000000062 /* HistoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1234550000000000000062 /* HistoryRowView.swift */; };
@@ -73,6 +74,7 @@
 		3A1234550000000000000051 /* ConversationViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewStore.swift; sourceTree = "<group>"; };
 		3A1234550000000000000052 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
 		3A1234550000000000000053 /* InputAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAreaView.swift; sourceTree = "<group>"; };
+		3A1234550000000000000054 /* ConversationStarterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStarterView.swift; sourceTree = "<group>"; };
 		3A1234550000000000000060 /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		3A1234550000000000000061 /* HistoryListViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewStore.swift; sourceTree = "<group>"; };
 		3A1234550000000000000062 /* HistoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				3A1234550000000000000052 /* MessageBubbleView.swift */,
 				3A1234550000000000000053 /* InputAreaView.swift */,
+				3A1234550000000000000054 /* ConversationStarterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				3A1234560000000000000051 /* ConversationViewStore.swift in Sources */,
 				3A1234560000000000000052 /* MessageBubbleView.swift in Sources */,
 				3A1234560000000000000053 /* InputAreaView.swift in Sources */,
+				3A1234560000000000000054 /* ConversationStarterView.swift in Sources */,
 				3A1234560000000000000060 /* HistoryListView.swift in Sources */,
 				3A1234560000000000000061 /* HistoryListViewStore.swift in Sources */,
 				3A1234560000000000000062 /* HistoryRowView.swift in Sources */,
