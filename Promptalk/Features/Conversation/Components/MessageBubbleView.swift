@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct MessageBubbleView: View {
     let message: Message
@@ -24,6 +25,21 @@ struct MessageBubbleView: View {
                     .background(isUser ? Color.accentColor : Color(.systemGray5))
                     .foregroundStyle(isUser ? .white : .primary)
                     .clipShape(RoundedRectangle(cornerRadius: 18))
+                    .contextMenu {
+                        Button {
+                            UIPasteboard.general.string = message.content
+                        } label: {
+                            Label("コピー", systemImage: "doc.on.doc")
+                        }
+
+                        if let translation = message.translatedContent {
+                            Button {
+                                UIPasteboard.general.string = translation
+                            } label: {
+                                Label("翻訳をコピー", systemImage: "doc.on.doc.fill")
+                            }
+                        }
+                    }
 
                 if showTranslation, let translation = message.translatedContent {
                     Text(translation)
